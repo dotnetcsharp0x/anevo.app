@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - anevo</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
+    <script type="text/javascript" src="https://d3js.org/d3.v6.min.js"></script>
+    <link href="~/css/graph.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+    </header>
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-xl-2 col-lg-2 col-sm-4 left-menu">
+                <div class='dashboard'>
+                    <div class="dashboard-nav">
+                        <div class="row lgtop">
+                            <div class="col-12 logo-top">
+                                <a href="/" class="brand-logo">
+                                    <img src="~/img/anevo-white.png" height="40" width="160" />
+                                </a>
+                                <button type="button" id="menu-toggle" class="btn-hide-menu" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                    <i class="fa fa-toggle-off"></i>
+                                </button>
+                            </div>
+                            <div class="col-12 lmenu" id="navbarNavDropdown">
+                                <nav class="dashboard-nav-list row">
+                                    <a href="#" class="dashboard-nav-item active">
+                                        <i class="fa fa-home"></i>
+                                        Home
+                                    </a>
+                                    <a href="#" class="dashboard-nav-item">
+                                        <i class="fa fa-user"></i>
+                                        Profile
+                                    </a>
+                                    <a href="#" class="dashboard-nav-item">
+                                        <i class="fa fa-rss"></i>
+                                        World
+                                    </a>
+                                    <a href="#" class="dashboard-nav-item">
+                                        <i class="fa fa-comments"></i>
+                                        Messenger
+                                    </a>
+
+
+                                    <div class='dashboard-nav-dropdown'>
+                                        <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                                            <i class="fa fa-btc"></i>
+                                            Crypto
+                                        </a>
+                                        <div class='dashboard-nav-dropdown-menu'>
+                                            <a href="#"
+                                               class="dashboard-nav-dropdown-item">All</a>
+                                            <a href="#" class="dashboard-nav-dropdown-item">Recent</a>
+                                            <a href="#" class="dashboard-nav-dropdown-item">Images</a>
+                                            <a href="#" class="dashboard-nav-dropdown-item">Video</a>
+                                        </div>
+                                    </div>
+                                    <div class='dashboard-nav-dropdown'>
+                                        <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                                            <i class="fa fa-bank"></i>
+                                            Stocks
+                                        </a>
+                                        <div class='dashboard-nav-dropdown-menu'>
+                                            <a href="#" class="dashboard-nav-dropdown-item"><i class="fa fa-home"></i> All</a>
+                                            <a href="#" class="dashboard-nav-dropdown-item">Subscribed</a>
+                                            <a href="#" class="dashboard-nav-dropdown-item">Non-subscribed</a>
+                                            <a href="#" class="dashboard-nav-dropdown-item">Banned</a>
+                                            <a href="#" class="dashboard-nav-dropdown-item">New</a>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="dashboard-nav-item">
+                                        <i class="fa fa-bell-o"></i>
+                                        Alerts
+                                    </a>
+                                    <a href="#" class="dashboard-nav-item">
+                                        <i class="fa fa-newspaper-o"></i>
+                                        News
+                                    </a>
+                                    <a href="#" class="dashboard-nav-item">
+                                        <i class="fa fa-book"></i>
+                                        Blog
+                                    </a>
+                                    <a href="#" class="dashboard-nav-item">
+                                        <i class="fa fa-code"></i>
+                                        API docs
+                                    </a>
+                                    <div class="nav-item-divider"></div>
+                                    <a href="#" class="dashboard-nav-item">
+                                        <i class="fa fa-sign-out"></i> Logout
+                                    </a>
+                                    <div class="nav-item text-center menu-footer mt-3">
+                                        <div>
+                                            <span>&copy; 2023 - Anevo</span>
+                                        </div>
+                                        <div>
+                                            <a asp-area="" asp-page="/Privacy">Privacy</a>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-10 col-lg-10 col-sm-8 main-body">
+                <div class="container-fluid">
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <form method="get">
+                                <div class="search">
+                                    <input class="form-control shadow-none" id="search-box" type="text" placeholder="" autocomplete="off">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery-ui.min.js"></script>
+    <script src="~/js/chart.js"></script>
+    <script src="~/js/chart2.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>    
+    
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

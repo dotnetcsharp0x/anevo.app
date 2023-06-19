@@ -1,0 +1,51 @@
+﻿
+
+#root {
+    margin: 0 auto;
+    padding: 20px 0px;
+}
+
+svg {
+    text-align: center;
+}
+
+text {
+    font-family: Helvetica;
+    font-size: 26px;
+    fill: gainsboro;
+}
+
+    text.title {
+        font-size: 22px;
+        fill: Aqua;
+    }
+
+.subtitle text {
+    font-size: 12px;
+    text-decoration: underline;
+    fill: gray;
+}
+
+path.line {
+    fill: none;
+    stroke: #03b206;
+    stroke-width: 4px;
+}
+
+path.area {
+    fill: transparent;
+    opacity: 0.2;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: slategray;
+    shape-rendering: crispEdges;
+}
+
+line.x,
+line.y,
+circle.y {
+    stroke: Aqua;
+}

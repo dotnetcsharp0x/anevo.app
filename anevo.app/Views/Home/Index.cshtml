@@ -1,0 +1,125 @@
+﻿@using System.Globalization;
+@using System.Text;
+@using anevo.app.Models;
+@using anevo.app.ViewModels;
+@model InstrumentsViewModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="container-fluid mt-0">
+    <div class="row">
+        <div class="offset-xl-1 col-xl-4 col-lg-6 col-md-12 offset-md-0 col-sm-12 mblock">
+            <h2 class="bitcoin">Bitcoin</h2>
+            <label class="btc-price" id="price-bitcoin">26310.31</label><label class="btc-price">&nbsp;$</label>
+            <div class="changevalueblock">
+                <label class="changevalue">+310 $ (+0.75%)</label><label class="changevaluetoday">&nbsp;Today</label>
+            </div>
+            <div id="root1"></div>
+            <p>
+                <nav class="navbar navbar-expand-lg navbar-light mblock-menu">
+                    <div class="navbar-collapse text-nowrap">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-inline-block" id="list-timeframes-btc">
+                        <li class="nav-item active d-inline-block" id="btc-1d">
+                          1D
+                        </li>
+                        <li class="nav-item d-inline-block" id="btc-1w">
+                          1W
+                        </li>
+                        <li class="nav-item d-inline-block" id="btc-1m">
+                          1M
+                        </li>
+                        <li class="nav-item d-inline-block" id="btc-1y">
+                          1Y
+                        </li>
+                        <li class="nav-item d-inline-block" id="btc-5y">
+                          5Y
+                        </li>
+                      </ul>
+                    </div>
+                </nav>
+            </p>
+        </div>
+        <div class="offset-xl-2 col-xl-4 col-lg-6 col-md-12 col-sm-12 mblock">
+            <h2 class="bitcoin">S&P 500</h2>
+            <label class="spy-price" id="price-spy">26310.31</label><label class="btc-price">&nbsp;$</label>
+            <div class="changevalueblock">
+                <label class="changevalue">+310 $ (+0.75%)</label><label class="changevaluetoday">&nbsp;Today</label>
+            </div>
+            <div id="root2"></div>
+            <p>
+                <nav class="navbar navbar-expand-lg navbar-light mblock-menu">
+                    <div class="navbar-collapse text-nowrap">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-inline-block" id="list-timeframes-spy">
+                        <li class="nav-item active d-inline-block" id="spy-1d">
+                          1D
+                        </li>
+                        <li class="nav-item d-inline-block" id="spy-1w">
+                          1W
+                        </li>
+                        <li class="nav-item d-inline-block" id="spy-1m">
+                          1M
+                        </li>
+                        <li class="nav-item d-inline-block" id="spy-1y">
+                          1Y
+                        </li>
+                        <li class="nav-item d-inline-block" id="spy-5y">
+                          5Y
+                        </li>
+                      </ul>
+                    </div>
+                </nav>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mblock">
+            <table class="table table-stocks">
+                <tbody>
+        @foreach (TickersMainPage comp in Model.TickersMainPage)
+        {
+
+            <tr class="d-flex align-middle" onclick="document.location = '/Stock/Detail?ticker=@comp.ticker';">
+
+            @{
+                string ticker = comp.ticker+".png";
+             }
+                            <td class="col-xl-2 col-xs-3 col-sm-4 gallerypic my-auto table-row">
+                <img src="~/img/stocks/@ticker" height="50" width="60" class="img-stock pic" />
+                                <span class="zoom-icon">
+                                    <img src="~/img/glass2.png" width="60" height="50" alt="Zoom" />
+                                </span>
+                </td>
+
+            <td class="col my-auto"><div class="table-row d-none d-sm-block">@comp.name</div><div class="ticker">@comp.ticker</div></td>
+
+                            <td class="col my-auto table-row text-center price">
+                                @comp.closePrice
+                                @{
+                                    string symbol = " $"; 
+
+                                    if(comp.currency_name == "usd")
+                                    {
+                                        @String.Format("{0}", symbol)
+                                    }    
+                                }</td>
+                        </tr>
+                        
+        }
+        </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core1</a>.</p>
+</div>
+*@
