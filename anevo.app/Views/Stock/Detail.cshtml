@@ -45,6 +45,42 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 mblock">
+             @*   <h2 class="bitcoin">@Model.TickersMainPage.First().name</h2>
+                <label class="spy-price" id="price-spy">@Model.TickersMainPage.First().closePrice</label><label class="btc-price">&nbsp;$</label>*@
+              @*  <div class="changevalueblock">
+                    <label class="changevalue">+310 $ (+0.75%)</label><label class="changevaluetoday">&nbsp;Today</label>
+                </div>*@
+                <div id="root2"></div>
+                <p>
+                    <nav class="navbar navbar-expand-lg navbar-light mblock-menu">
+                        <div class="navbar-collapse text-nowrap">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-inline-block" id="list-timeframes-spy">
+                                <li class="nav-item active d-inline-block" id="spy-1d">
+                                    1D
+                                </li>
+                                <li class="nav-item d-inline-block" id="spy-1w">
+                                    1W
+                                </li>
+                                <li class="nav-item d-inline-block" id="spy-1m">
+                                    1M
+                                </li>
+                                <li class="nav-item d-inline-block" id="spy-1y">
+                                    1Y
+                                </li>
+                                <li class="nav-item d-inline-block" id="spy-5y">
+                                    5Y
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </p>
+            </div>
+        </div>
     </div>
     }
     
+@section scripts {
+    <script src="~/js/stock/detail/chart.js" asp-append-version="true"></script>
+}

@@ -47,6 +47,7 @@ namespace anevo.app.Controllers
             JavaScriptSerializer? js = new JavaScriptSerializer();
             var poly_tickers = js.Deserialize<List<TickersMainPage>>(r);
             ivm = new InstrumentsViewModel { TickersMainPage = poly_tickers.ToList() };
+            client.Dispose();
             Content.Dispose();
             return View(ivm);
         }
